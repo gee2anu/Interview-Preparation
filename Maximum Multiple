@@ -1,0 +1,34 @@
+I started competitive programming again with simple problems. Like this one. 
+Given a Divisor and a Bound , Find the largest integer N , Such that following conditions are satisfied 
+Conditions :
+1. N is divisible by divisor
+2. N is less than or equal to bound
+3. N is greater than 0.
+
+
+There are three approaches to this problem : 
+Approach 1 :  Loop from the end/bound to find number divisble by the divisor. 
+Time : O(b) time 
+
+func MaxMultiple(divisor, bound int) int {
+    for a := bound; a > 0; a--{
+      if a % divisor == 0 {
+        return a
+      }
+    }
+    return 0
+}
+
+Approach 2 : Get the quotient from dividing bound by divisor, and return the product. 
+Time : O(1) time 
+func MaxMultiple(d, b int) int {
+    quot := b / d
+    return d * quot
+}
+
+Approach 3 : Bound minus reminder of bound by divisor modulus gives the maximum multiple. 
+Time : O(1) time : 
+func MaxMultiple(d, b int) int {
+    // your code here
+    return b - b % d
+}
